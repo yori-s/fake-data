@@ -1,67 +1,66 @@
-<schema
-	targetNamespace="https://raw.githubusercontent.com/yori-s/fake-data/master/xsd/primer/po.xsd"
-	xmlns:tns="https://raw.githubusercontent.com/yori-s/fake-data/master/xsd/primer/po.xsd"
-	xmlns="http://www.w3.org/2001/XMLSchema"
-	>
-	<annotation>
-		<documentation xml:lang="en">
-			Purchase order schema for Example.com.
-			Copyright 2000 Example.com. All rights reserved.
-		</documentation>
-	</annotation>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
-	<element name="purchaseOrder" type="tns:PurchaseOrderType"/>
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+     Purchase order schema for Example.com.
+     Copyright 2000 Example.com. All rights reserved.
+    </xsd:documentation>
+  </xsd:annotation>
 
-	<element name="comment" type="string"/>
+  <xsd:element name="purchaseOrder" type="PurchaseOrderType"/>
 
-	<complexType name="PurchaseOrderType">
-		<sequence>
-			<element name="shipTo" type="tns:USAddress"/>
-			<element name="billTo" type="tns:USAddress"/>
-			<element ref="tns:comment" minOccurs="0"/>
-			<element name="items"  type="tns:Items"/>
-		</sequence>
-		<attribute name="orderDate" type="date"/>
-	</complexType>
+  <xsd:element name="comment" type="xsd:string"/>
 
-	<complexType name="USAddress">
-		<sequence>
-			<element name="name"   type="string"/>
-			<element name="street" type="string"/>
-			<element name="city"   type="string"/>
-			<element name="state"  type="string"/>
-			<element name="zip"    type="decimal"/>
-		</sequence>
-		<attribute name="country" type="NMTOKEN" fixed="US"/>
-	</complexType>
+  <xsd:complexType name="PurchaseOrderType">
+    <xsd:sequence>
+      <xsd:element name="shipTo" type="USAddress"/>
+      <xsd:element name="billTo" type="USAddress"/>
+      <xsd:element ref="comment" minOccurs="0"/>
+      <xsd:element name="items"  type="Items"/>
+    </xsd:sequence>
+    <xsd:attribute name="orderDate" type="xsd:date"/>
+  </xsd:complexType>
 
-	<complexType name="Items">
-		<sequence>
-			<element name="item" minOccurs="0" maxOccurs="unbounded">
-				<complexType>
-					<sequence>
-						<element name="productName" type="string"/>
-						<element name="quantity">
-							<simpleType>
-								<restriction base="positiveInteger">
-									<maxExclusive value="100"/>
-								</restriction>
-							</simpleType>
-						</element>
-						<element name="USPrice"  type="decimal"/>
-						<element ref="tns:comment"   minOccurs="0"/>
-						<element name="shipDate" type="date" minOccurs="0"/>
-					</sequence>
-					<attribute name="partNum" type="tns:SKU" use="required"/>
-				</complexType>
-			</element>
-		</sequence>
-	</complexType>
+  <xsd:complexType name="USAddress">
+    <xsd:sequence>
+      <xsd:element name="name"   type="xsd:string"/>
+      <xsd:element name="street" type="xsd:string"/>
+      <xsd:element name="city"   type="xsd:string"/>
+      <xsd:element name="state"  type="xsd:string"/>
+      <xsd:element name="zip"    type="xsd:decimal"/>
+    </xsd:sequence>
+    <xsd:attribute name="country" type="xsd:NMTOKEN"
+                   fixed="US"/>
+  </xsd:complexType>
 
-	<!-- Stock Keeping Unit, a code for identifying products -->
-	<simpleType name="SKU">
-		<restriction base="string">
-			<pattern value="\d{3}-[A-Z]{2}"/>
-		</restriction>
-	</simpleType>
-</schema>
+  <xsd:complexType name="Items">
+    <xsd:sequence>
+      <xsd:element name="item" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="productName" type="xsd:string"/>
+            <xsd:element name="quantity">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:positiveInteger">
+                  <xsd:maxExclusive value="100"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="USPrice"  type="xsd:decimal"/>
+            <xsd:element ref="comment"   minOccurs="0"/>
+            <xsd:element name="shipDate" type="xsd:date" minOccurs="0"/>
+          </xsd:sequence>
+          <xsd:attribute name="partNum" type="SKU" use="required"/>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- Stock Keeping Unit, a code for identifying products -->
+  <xsd:simpleType name="SKU">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\d{3}-[A-Z]{2}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+</xsd:schema>
