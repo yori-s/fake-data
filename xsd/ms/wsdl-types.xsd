@@ -1,0 +1,14 @@
+<schema
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://microsoft.com/wsdl/types/"
+	elementFormDefault="qualified"
+>
+	<simpleType name="guid">
+		<restriction base="string">
+			<pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="char">
+		<restriction base="unsignedShort"/>
+	</simpleType>
+</schema>
