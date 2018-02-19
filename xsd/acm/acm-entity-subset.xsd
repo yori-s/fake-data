@@ -1,0 +1,234 @@
+<schema
+	targetNamespace="http://www.acumatica.com/entity/Juul/Juul10/"
+	elementFormDefault="qualified"
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.acumatica.com/entity/Juul/Juul10/"
+	xmlns:ms="http://microsoft.com/wsdl/types/"
+>
+	<import namespace="http://microsoft.com/wsdl/types/"
+		schemaLocation="https://raw.githubusercontent.com/yori-s/fake-data/master/xsd/ms/wsdl-types.xsd"
+	/>
+
+	<element name="GetList">
+		<complexType>
+			<sequence>
+				<element name="entity" type="tns:Entity" minOccurs="0" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="Entity">
+		<sequence>
+			<element name="ID" nillable="true" type="ms:guid" />
+			<element name="RowNumber" type="tns:LongValue" minOccurs="0" />
+			<element name="Note" type="string" minOccurs="0" />
+			<element name="Delete" type="boolean" />
+			<element name="CustomFields" minOccurs="0">
+				<complexType>
+					<sequence>
+						<element name="CustomField" type="tns:CustomField" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="ReturnBehavior" type="tns:ReturnBehavior" />
+		</sequence>
+	</complexType>
+	<simpleType name="ReturnBehavior">
+		<restriction base="string">
+			<enumeration value="All" />
+			<enumeration value="None" />
+			<enumeration value="OnlySystem" />
+			<enumeration value="OnlySpecified" />
+		</restriction>
+	</simpleType>
+
+	<complexType name="Address">
+		<complexContent>
+			<extension base="tns:Entity">
+				<sequence>
+					<element name="AddressLine1" type="tns:StringValue" minOccurs="0" nillable="true" />
+					<element name="AddressLine2" type="tns:StringValue" minOccurs="0" nillable="true" />
+					<element name="City" type="tns:StringValue" minOccurs="0" nillable="true" />
+					<element name="Country" type="tns:StringValue" minOccurs="0" nillable="true" />
+					<element name="PostalCode" type="tns:StringValue" minOccurs="0" nillable="true" />
+					<element name="State" type="tns:StringValue" minOccurs="0" nillable="true" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="Contact">
+		<complexContent>
+			<extension base="tns:Entity">
+				<sequence>
+					<element name="Address" type="tns:Address" minOccurs="0" nillable="true" />
+					<element name="ContactID" type="tns:LongValue" minOccurs="0" nillable="true" />
+					<element name="DisplayName" type="tns:StringValue" minOccurs="0" nillable="true" />
+					<element name="Email" type="tns:StringValue" minOccurs="0" nillable="true" />
+					<element name="Fax" type="tns:StringValue" minOccurs="0" nillable="true" />
+					<element name="FirstName" type="tns:StringValue" minOccurs="0" nillable="true" />
+					<element name="LastName" type="tns:StringValue" minOccurs="0" nillable="true" />
+					<element name="MiddleName" type="tns:StringValue" minOccurs="0" nillable="true" />
+					<element name="Phone1" type="tns:StringValue" minOccurs="0" nillable="true" />
+					<element name="Phone1Type" type="tns:StringValue" minOccurs="0" nillable="true" />
+					<element name="Phone2" type="tns:StringValue" minOccurs="0" nillable="true" />
+					<element name="Phone2Type" type="tns:StringValue" minOccurs="0" nillable="true" />
+					<element name="Position" type="tns:StringValue" minOccurs="0" nillable="true" />
+					<element name="Title" type="tns:StringValue" minOccurs="0" nillable="true" />
+					<element name="Web" type="tns:StringValue" minOccurs="0" nillable="true" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="AttributeDefinition">
+		<complexContent>
+			<extension base="tns:Entity">
+				<sequence>
+					<element name="AttributeID" type="tns:StringValue" minOccurs="0" nillable="true" />
+					<element name="ControlType" type="tns:StringValue" minOccurs="0" nillable="true" />
+					<element name="Description" type="tns:StringValue" minOccurs="0" nillable="true" />
+					<element name="EntryMask" type="tns:StringValue" minOccurs="0" nillable="true" />
+					<element name="Internal" type="tns:BooleanValue" minOccurs="0" nillable="true" />
+					<element name="RegExp" type="tns:StringValue" minOccurs="0" nillable="true" />
+					<element name="Values" minOccurs="0" nillable="true">
+						<complexType>
+							<sequence>
+								<element name="AttributeDefinitionValue" type="tns:AttributeDefinitionValue" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+							</sequence>
+						</complexType>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="AttributeDefinitionValue">
+		<complexContent>
+			<extension base="tns:Entity">
+				<sequence>
+					<element name="Description" type="tns:StringValue" minOccurs="0" nillable="true" />
+					<element name="Disabled" type="tns:BooleanValue" minOccurs="0" nillable="true" />
+					<element name="SortOrder" type="tns:LongValue" minOccurs="0" nillable="true" />
+					<element name="ValueID" type="tns:StringValue" minOccurs="0" nillable="true" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="CustomField" abstract="true">
+		<sequence />
+		<attribute name="viewName" type="string" />
+		<attribute name="fieldName" type="string" />
+	</complexType>
+
+	<complexType name="CustomBooleanField">
+		<complexContent>
+			<extension base="tns:CustomField">
+				<sequence>
+					<element name="Value" type="tns:BooleanValue" minOccurs="0" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="BooleanValue">
+		<sequence>
+			<element name="Value" type="boolean" nillable="true" />
+		</sequence>
+	</complexType>
+	<complexType name="BooleanSearch">
+		<complexContent>
+			<extension base="tns:BooleanValue">
+				<sequence>
+					<element name="Condition" type="tns:BooleanCondition" />
+					<element name="Value2" type="boolean" nillable="true" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<simpleType name="BooleanCondition">
+		<restriction base="string">
+			<enumeration value="Equal" />
+			<enumeration value="NotEqual" />
+			<enumeration value="IsNull" />
+			<enumeration value="IsNotNull" />
+		</restriction>
+	</simpleType>
+
+	<complexType name="CustomLongField">
+		<complexContent>
+			<extension base="tns:CustomField">
+				<sequence>
+					<element minOccurs="0" name="Value" type="tns:LongValue" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="LongValue">
+		<sequence>
+			<element name="Value" nillable="true" type="long" />
+		</sequence>
+	</complexType>
+	<complexType name="LongSearch">
+		<complexContent>
+			<extension base="tns:LongValue">
+				<sequence>
+					<element name="Condition" type="tns:LongCondition" />
+					<element name="Value2" nillable="true" type="long" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<simpleType name="LongCondition">
+		<restriction base="string">
+			<enumeration value="Equal" />
+			<enumeration value="NotEqual" />
+			<enumeration value="IsBetween" />
+			<enumeration value="IsGreaterThan" />
+			<enumeration value="IsLessThan" />
+			<enumeration value="IsGreaterThanOrEqualsTo" />
+			<enumeration value="IsLessThanOrEqualsTo" />
+			<enumeration value="IsNull" />
+			<enumeration value="IsNotNull" />
+		</restriction>
+	</simpleType>
+
+	<complexType name="CustomStringField">
+		<complexContent>
+			<extension base="tns:CustomField">
+				<sequence>
+					<element minOccurs="0" name="Value" type="tns:StringValue" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="StringValue">
+		<sequence>
+			<element minOccurs="0" name="Value" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="StringSearch">
+		<complexContent>
+			<extension base="tns:StringValue">
+				<sequence>
+					<element name="Condition" type="tns:StringCondition" />
+					<element minOccurs="0" name="Value2" type="string" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<simpleType name="StringCondition">
+		<restriction base="string">
+			<enumeration value="Equal" />
+			<enumeration value="NotEqual" />
+			<enumeration value="IsBetween" />
+			<enumeration value="IsGreaterThan" />
+			<enumeration value="IsLessThan" />
+			<enumeration value="IsGreaterThanOrEqualsTo" />
+			<enumeration value="IsLessThanOrEqualsTo" />
+			<enumeration value="Contains" />
+			<enumeration value="DoesNotContain" />
+			<enumeration value="StartsWith" />
+			<enumeration value="EndsWith" />
+			<enumeration value="IsNull" />
+			<enumeration value="IsNotNull" />
+		</restriction>
+	</simpleType>
+</schema>
