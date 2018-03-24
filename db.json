@@ -41,46 +41,55 @@
     {
       "id": "0014600000WNlJvAAL",
       "accountNumber": "600000001120",
-      "name": "Cheese's Sample Project"
+      "accountSource": null,
+      "annualRevenue": 0,
+      "name": "Cheese's Sample Project",
+      "type": null
     },
     {
       "id": "00146000012BteOAAS",
       "accountNumber": "cs-no-src",
       "accountSource": "Yori",
       "annualRevenue": 100,
-      "name": "cs-no-src-account"
+      "name": "cs-no-src-account",
+      "type": null
     },
     {
       "id": "00146000012Bq3nAAC",
       "accountNumber": "cs-1057-2c",
       "accountSource": "Yori",
       "annualRevenue": 200,
-      "name": "cs-1057-2c-account"
+      "name": "cs-1057-2c-account",
+      "type": null
     },
     {
       "id": "00146000012BqxkAAC",
       "accountNumber": "ds-shared-ftp-src",
       "accountSource": "Yori",
       "annualRevenue": 123,
-      "name": "ds-shared-ftp-src-account"
+      "name": "ds-shared-ftp-src-account",
+      "type": null
     },
     {
       "id": "00146000012BrZgAAK",
       "accountNumber": "cs-shared-ftp-src",
       "accountSource": "Yori",
       "annualRevenue": 321,
-      "name": "cs-shared-ftp-src-account"
+      "name": "cs-shared-ftp-src-account",
+      "type": null
     },
     {
       "id": "00146000012Bq3iAAC",
       "accountNumber": "cs-1057-2c",
       "accountSource": "Yori",
       "annualRevenue": 200,
-      "name": "cs-1057-2c-account"
+      "name": "cs-1057-2c-account",
+      "type": null
     },
     {
       "id": "0014600000V4rm4AAB",
       "accountNumber": "CC978213",
+      "accountSource": null,
       "annualRevenue": 30000000,
       "name": "GenePoint",
       "numberOfEmployees": 265,
@@ -89,6 +98,8 @@
     {
       "id": "0014600000V4rm2AAB",
       "accountNumber": "CD355119-A",
+      "accountSource": null,
+      "annualRevenue": 0,
       "name": "United Oil & Gas, UK",
       "numberOfEmployees": 24000,
       "type": "Customer - Direct"
@@ -96,6 +107,8 @@
     {
       "id": "0014600000V4rm3AAB",
       "accountNumber": "CD355120-B",
+      "accountSource": null,
+      "annualRevenue": 0,
       "name": "United Oil & Gas, Singapore",
       "numberOfEmployees": 3000,
       "type": "Customer - Direct"
@@ -103,6 +116,7 @@
     {
       "id": "0014600000V4rluAAB",
       "accountNumber": "CD451796",
+      "accountSource": null,
       "annualRevenue": 139000000,
       "name": "Edge Communications",
       "numberOfEmployees": 1000,
