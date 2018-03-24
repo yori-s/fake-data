@@ -35,5 +35,78 @@
       "active": true,
       "created": "1995-12-17T03:24:00"
     }
+  ],
+
+  "sf-accounts": [
+    {
+      "id": "0014600000WNlJvAAL",
+      "accountNumber": "600000001120",
+      "name": "Cheese's Sample Project"
+    },
+    {
+      "id": "00146000012BteOAAS",
+      "accountNumber": "cs-no-src",
+      "accountSource": "Yori",
+      "annualRevenue": 100,
+      "name": "cs-no-src-account"
+    },
+    {
+      "id": "00146000012Bq3nAAC",
+      "accountNumber": "cs-1057-2c",
+      "accountSource": "Yori",
+      "annualRevenue": 200,
+      "name": "cs-1057-2c-account"
+    },
+    {
+      "id": "00146000012BqxkAAC",
+      "accountNumber": "ds-shared-ftp-src",
+      "accountSource": "Yori",
+      "annualRevenue": 123,
+      "name": "ds-shared-ftp-src-account"
+    },
+    {
+      "id": "00146000012BrZgAAK",
+      "accountNumber": "cs-shared-ftp-src",
+      "accountSource": "Yori",
+      "annualRevenue": 321,
+      "name": "cs-shared-ftp-src-account"
+    },
+    {
+      "id": "00146000012Bq3iAAC",
+      "accountNumber": "cs-1057-2c",
+      "accountSource": "Yori",
+      "annualRevenue": 200,
+      "name": "cs-1057-2c-account"
+    },
+    {
+      "id": "0014600000V4rm4AAB",
+      "accountNumber": "CC978213",
+      "annualRevenue": 30000000,
+      "name": "GenePoint",
+      "numberOfEmployees": 265,
+      "type": "Customer - Channel"
+    },
+    {
+      "id": "0014600000V4rm2AAB",
+      "accountNumber": "CD355119-A",
+      "name": "United Oil & Gas, UK",
+      "numberOfEmployees": 24000,
+      "type": "Customer - Direct"
+    },
+    {
+      "id": "0014600000V4rm3AAB",
+      "accountNumber": "CD355120-B",
+      "name": "United Oil & Gas, Singapore",
+      "numberOfEmployees": 3000,
+      "type": "Customer - Direct"
+    },
+    {
+      "id": "0014600000V4rluAAB",
+      "accountNumber": "CD451796",
+      "annualRevenue": 139000000,
+      "name": "Edge Communications",
+      "numberOfEmployees": 1000,
+      "type": "Customer - Direct"
+    }
   ]
 }
